@@ -1,1 +1,42 @@
 /* You can add global styles to this file, and also import other style files */
+/* 1. Importação do Tailwind v4 */
+@use "tailwindcss";
+
+/* 
+  2. Mapeamento de Arquivos (Substituto do antigo 'content')
+  Isso diz ao Tailwind para varrer a própria pasta 'src' e 
+  suas subpastas em busca de classes no HTML e no TS.
+*/
+@source "./";
+
+/* 3. TEMA DO TAILWIND V4 */
+@theme {
+  --color-vivo-purple: #660099;
+  --color-tech-dark: #111111;
+  --color-tech-gray: #1f2937;
+}
+
+/* 4. MOTOR DO CHAMELEON SCROLL */
+:root {
+  --page-bg-color: var(--color-tech-gray);
+  --page-text-color: #f3f4f6;
+}
+
+body {
+  background-color: var(--page-bg-color);
+  color: var(--page-text-color);
+  transition: background-color 0.8s ease-in-out, color 0.8s ease-in-out;
+  margin: 0;
+  min-height: 100vh;
+}
+
+/* Temas baseados na seção */
+body.theme-vivo {
+  --page-bg-color: var(--color-vivo-purple);
+  --page-text-color: #ffffff;
+}
+
+body.theme-resum {
+  --page-bg-color: #000000;
+  --page-text-color: #ffffff;
+}
